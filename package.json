@@ -1,16 +1,16 @@
 {
-  "name": "zotero-addon-template",
-  "version": "1.0.0",
-  "description": "Zotero Addon Template",
+  "name": "zotero-scholar",
+  "version": "0.0.1",
+  "description": "Zotero Scholar",
   "config": {
-    "addonName": "Zotero Addon Template",
-    "addonID": "addontemplate@euclpts.com",
-    "addonRef": "addontemplate",
+    "addonName": "Zotero Scholar",
+    "addonID": "zoteroScholar@my.com",
+    "addonRef": "zoteroScholar",
     "addonInstance": "AddonTemplate",
     "prefsPrefix": "extensions.zotero.addontemplate",
-    "releasePage": "https://github.com/windingwind/zotero-addon-template/releases",
-    "updateJSON": "https://raw.githubusercontent.com/windingwind/zotero-addon-template/main/update.json",
-    "updateBetaJSON": "https://raw.githubusercontent.com/windingwind/zotero-addon-template/main/update-beta.json"
+    "releasePage": "https://github.com/liunuozhi/zotero-scholar/releases",
+    "updateJSON": "https://raw.githubusercontent.com/liunuozhi/zotero-scholar/main/update.json",
+    "updateBetaJSON": "https://raw.githubusercontent.com/liunuozhi/zotero-scholar/main/update-beta.json"
   },
   "main": "src/index.ts",
   "scripts": {
@@ -35,12 +35,12 @@
     "type": "git",
     "url": "git+https://github.com/windingwind/zotero-addon-template.git"
   },
-  "author": "windingwind",
+  "author": "liunuozhi",
   "license": "AGPL-3.0-or-later",
   "bugs": {
     "url": "https://github.com/windingwind/zotero-addon-template/issues"
   },
-  "homepage": "https://github.com/windingwind/zotero-addon-template#readme",
+  "homepage": "https://github.com/liunuozhi/zotero-scholar",
   "dependencies": {
     "zotero-plugin-toolkit": "^2.3.6"
   },
