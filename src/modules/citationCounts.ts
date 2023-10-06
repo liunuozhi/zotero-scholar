@@ -36,7 +36,7 @@ export class UICitationCountsFactory {
         includeBaseMapped: boolean,
         item: Zotero.Item,
       ) => {
-        return `${item.id}`;
+        return `${item.id} ${item.getField("extra")}`;
       },
       {},
     );
