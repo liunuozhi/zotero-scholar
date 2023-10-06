@@ -1,3 +1,4 @@
+import { UICitationCountsFactory } from "./modules/citationCounts";
 import { config } from "../package.json";
 import { getString, initLocale } from "./utils/locale";
 import { createZToolkit } from "./utils/ztoolkit";
@@ -15,6 +16,8 @@ async function onStartup() {
 async function onMainWindowLoad(win: Window): Promise<void> {
   // Create ztoolkit for every window
   addon.data.ztoolkit = createZToolkit();
+
+  await UICitationCountsFactory.registerExtraColumn();
 }
 
 async function onMainWindowUnload(win: Window): Promise<void> {
