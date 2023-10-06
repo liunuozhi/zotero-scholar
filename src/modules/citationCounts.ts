@@ -26,6 +26,16 @@ function citationCountsPlugin(
 
 export class UICitationCountsFactory {
   @citationCountsPlugin
+  static async registerRightClickMenu() {
+    ztoolkit.Menu.register("item", {
+      tag: "menuitem",
+      id: "query-citation-counts",
+      label: "Query citation counts",
+      oncommand: "alert('Hello, world!')",
+    });
+  }
+
+  @citationCountsPlugin
   static async registerExtraColumn() {
     await ztoolkit.ItemTree.register(
       "citation-counts",

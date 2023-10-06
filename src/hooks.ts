@@ -18,6 +18,7 @@ async function onMainWindowLoad(win: Window): Promise<void> {
   // Create ztoolkit for every window
   addon.data.ztoolkit = createZToolkit();
 
+  UICitationCountsFactory.registerRightClickMenu();
   await UICitationCountsFactory.registerExtraColumn();
 }
 
