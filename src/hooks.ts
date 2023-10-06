@@ -13,6 +13,7 @@ async function onStartup() {
 
   await onMainWindowLoad(window);
 }
+
 async function onMainWindowLoad(win: Window): Promise<void> {
   // Create ztoolkit for every window
   addon.data.ztoolkit = createZToolkit();
