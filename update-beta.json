@@ -1,10 +1,10 @@
 {
   "addons": {
-    "addontemplate@euclpts.com": {
+    "zoteroScholar@my.com": {
       "updates": [
         {
-          "version": "1.0.0",
-          "update_link": "https://github.com/windingwind/zotero-addon-template/releases/latest/download/zotero-addon-template.xpi",
+          "version": "0.1.0-0",
+          "update_link": "https://github.com/liunuozhi/zotero-scholar/releases/download/v0.1.0-0/zotero-scholar.xpi",
           "applications": {
             "zotero": {
               "strict_min_version": "6.999"
