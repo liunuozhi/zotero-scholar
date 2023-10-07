@@ -58,9 +58,7 @@ export class UICitationCountsFactory {
         includeBaseMapped: boolean,
         item: Zotero.Item,
       ) => {
-        const extra = item.getField("extra").toString();
-        const pattern = /Citation count: (\d+)/;
-        const counts = pattern.exec(extra);
+        const counts = ztoolkit.ExtraField.getExtraField(item, "citationCount");
         return counts ? `${counts[1]}` : "";
       },
       {},

@@ -1,6 +1,5 @@
 function setCitationCount(item: Zotero.Item, count: number) {
-  item.setField("extra", `Citation count: ${count}`);
-  ztoolkit.log(item.getField("extra"));
+  ztoolkit.ExtraField.setExtraField(item, "citationCount", String(count));
 }
 
 async function getSemanticScholarCount(item: Zotero.Item, idtype: string) {
