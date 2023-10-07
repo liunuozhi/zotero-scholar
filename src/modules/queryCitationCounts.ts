@@ -4,7 +4,7 @@ function setCitationCount(item: Zotero.Item, count: number) {
 }
 
 async function getSemanticScholarCount(item: Zotero.Item, idtype: string) {
-  const arxiv = item.getField("url"); // check URL for arXiv id
+  const arxiv = item.getField("url").toString(); // check URL for arXiv id
   const pattern = /\d+\.\d+/;
   const arxivId = pattern.exec(arxiv);
 
