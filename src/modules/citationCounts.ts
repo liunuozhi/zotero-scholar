@@ -1,3 +1,7 @@
+import {
+  setCitationCount,
+  getSemanticScholarCount,
+} from "./queryCitationCounts";
 import { config } from "../../package.json";
 import { getString } from "../utils/locale";
 
@@ -31,7 +35,15 @@ export class UICitationCountsFactory {
       tag: "menuitem",
       id: "query-citation-counts",
       label: "Query citation counts",
-      oncommand: "alert('Hello, world!')",
+      commandListener: (event) => {
+        ztoolkit.log("Query citation counts");
+        const items = Zotero.getActiveZoteroPane().getSelectedItems();
+        items.map(async (item) => {
+          const count = await getSemanticScholarCount(item, "doi");
+          setCitationCount(item, count);
+          ztoolkit.log(`${count}`);
+        });
+      },
     });
   }
 
@@ -46,7 +58,10 @@ export class UICitationCountsFactory {
         includeBaseMapped: boolean,
         item: Zotero.Item,
       ) => {
-        return `${item.id} ${item.getField("extra")}`;
+        const extra = item.getField("extra");
+        const pattern = /Citation count: (\d+)/;
+        const counts = pattern.exec(extra);
+        return counts ? `${counts[1]}` : "";
       },
       {},
     );
