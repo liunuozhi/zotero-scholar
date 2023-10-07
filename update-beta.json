@@ -3,8 +3,8 @@
     "zoteroScholar@my.com": {
       "updates": [
         {
-          "version": "0.1.0-1",
-          "update_link": "https://github.com/liunuozhi/zotero-scholar/releases/download/v0.1.0-1/zotero-scholar.xpi",
+          "version": "0.1.0-2",
+          "update_link": "https://github.com/liunuozhi/zotero-scholar/releases/download/v0.1.0-2/zotero-scholar.xpi",
           "applications": {
             "zotero": {
               "strict_min_version": "6.999"
