@@ -59,7 +59,7 @@ export class UICitationCountsFactory {
         item: Zotero.Item,
       ) => {
         const counts = ztoolkit.ExtraField.getExtraField(item, "citationCount");
-        return counts ? `${counts[1]}` : "";
+        return counts != "undefined" ? `${counts}` : "";
       },
       {},
     );
