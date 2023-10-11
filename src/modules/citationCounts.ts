@@ -4,6 +4,7 @@ import {
 } from "./queryCitationCounts";
 import { config } from "../../package.json";
 import { getString } from "../utils/locale";
+import { count } from "console";
 
 function citationCountsPlugin(
   target: any,
@@ -59,7 +60,8 @@ export class UICitationCountsFactory {
         item: Zotero.Item,
       ) => {
         const counts = ztoolkit.ExtraField.getExtraField(item, "citationCount");
-        return counts != "undefined" ? `${counts}` : "";
+        ztoolkit.log(typeof counts);
+        return counts && counts != "undefined" ? `${counts}` : "";
       },
       {},
     );
