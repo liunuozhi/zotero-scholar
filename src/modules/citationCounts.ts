@@ -37,7 +37,6 @@ export class UICitationCountsFactory {
       id: "query-citation-counts",
       label: "Query citation counts",
       commandListener: (event) => {
-        ztoolkit.log("Query citation counts");
         const items = Zotero.getActiveZoteroPane().getSelectedItems();
         items.map(async (item) => {
           const count = await getSemanticScholarCount(item);
