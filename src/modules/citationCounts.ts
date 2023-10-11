@@ -32,10 +32,12 @@ function citationCountsPlugin(
 export class UICitationCountsFactory {
   @citationCountsPlugin
   static async registerRightClickMenu() {
+    const menuIcon = `chrome://${config.addonRef}/content/icons/favicon@0.5x.png`;
     ztoolkit.Menu.register("item", {
       tag: "menuitem",
       id: "query-citation-counts",
       label: "Query citation counts",
+      icon: menuIcon,
       commandListener: (event) => {
         const items = Zotero.getActiveZoteroPane().getSelectedItems();
         items.map(async (item) => {
