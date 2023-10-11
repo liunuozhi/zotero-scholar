@@ -39,9 +39,9 @@ export class UICitationCountsFactory {
         ztoolkit.log("Query citation counts");
         const items = Zotero.getActiveZoteroPane().getSelectedItems();
         items.map(async (item) => {
-          const count = await getSemanticScholarCount(item, "doi");
+          const count = await getSemanticScholarCount(item);
           setCitationCount(item, count);
-          ztoolkit.log(`${count}`);
+          // ztoolkit.log(`${count}`);
         });
       },
     });
