@@ -4,6 +4,7 @@ import {
 } from "./queryCitationCounts";
 import { config } from "../../package.json";
 import { getString } from "../utils/locale";
+import { count } from "console";
 
 function citationCountsPlugin(
   target: any,
@@ -31,17 +32,18 @@ function citationCountsPlugin(
 export class UICitationCountsFactory {
   @citationCountsPlugin
   static async registerRightClickMenu() {
+    const menuIcon = `chrome://${config.addonRef}/content/icons/favicon@0.5x.png`;
     ztoolkit.Menu.register("item", {
       tag: "menuitem",
       id: "query-citation-counts",
       label: "Query citation counts",
+      icon: menuIcon,
       commandListener: (event) => {
-        ztoolkit.log("Query citation counts");
         const items = Zotero.getActiveZoteroPane().getSelectedItems();
         items.map(async (item) => {
-          const count = await getSemanticScholarCount(item, "doi");
+          const count = await getSemanticScholarCount(item);
           setCitationCount(item, count);
-          ztoolkit.log(`${count}`);
+          // ztoolkit.log(`${count}`);
         });
       },
     });
@@ -59,7 +61,8 @@ export class UICitationCountsFactory {
         item: Zotero.Item,
       ) => {
         const counts = ztoolkit.ExtraField.getExtraField(item, "citationCount");
-        return counts != "undefined" ? `${counts}` : "";
+        ztoolkit.log(typeof counts);
+        return counts && counts != "undefined" ? `${counts}` : "";
       },
       {},
     );
