@@ -1,4 +1,4 @@
-import { getSemanticScholarCount } from "./queryCitationCounts";
+import { getSemanticScholarCount } from "./queryScholarData";
 import { config } from "../../package.json";
 import { getString } from "../utils/locale";
 import { count } from "console";

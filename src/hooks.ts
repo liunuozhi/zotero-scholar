@@ -1,4 +1,4 @@
-import { UICitationCountsFactory } from "./modules/citationCounts";
+import { UICitationCountsFactory } from "./modules/scholarData";
 import { config } from "../package.json";
 import { getString, initLocale } from "./utils/locale";
 import { createZToolkit } from "./utils/ztoolkit";
