@@ -3,7 +3,7 @@ import { config } from "../../package.json";
 import { getString } from "../utils/locale";
 import { count } from "console";
 
-function citationCountsPlugin(
+function scholarPlugin(
   target: any,
   propertyKey: string | symbol,
   descriptor: PropertyDescriptor,
@@ -27,7 +27,7 @@ function citationCountsPlugin(
 }
 
 export class UICitationCountsFactory {
-  @citationCountsPlugin
+  @scholarPlugin
   static async registerRightClickMenu() {
     const menuIcon = `chrome://${config.addonRef}/content/icons/favicon@0.5x.png`;
     ztoolkit.Menu.register("item", {
@@ -58,7 +58,7 @@ export class UICitationCountsFactory {
     });
   }
 
-  @citationCountsPlugin
+  @scholarPlugin
   static async registerExtraColumn() {
     await ztoolkit.ItemTree.register(
       "citation-counts",
