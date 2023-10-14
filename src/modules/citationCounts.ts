@@ -41,9 +41,11 @@ export class UICitationCountsFactory {
       commandListener: (event) => {
         const items = Zotero.getActiveZoteroPane().getSelectedItems();
         items.map(async (item) => {
-          const count = await getSemanticScholarCount(item);
-          setCitationCount(item, count);
-          // ztoolkit.log(`${count}`);
+          const data = await getSemanticScholarCount(item);
+          setCitationCount(item, data.citationCount);
+          // ztoolkit.log(
+          //   `${data.citationCount}, ${data.publicationVenue.alternate_names[0]}`,
+          // );
         });
       },
     });
