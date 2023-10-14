@@ -45,6 +45,11 @@ export class UICitationCountsFactory {
             "citationCount",
             String(data.citationCount),
           );
+          ztoolkit.ExtraField.setExtraField(
+            item,
+            "publicationVenue",
+            String(data.publicationVenue.alternate_names[0]),
+          );
           // ztoolkit.log(
           //   `${data.citationCount}, ${data.publicationVenue.alternate_names[0]}`,
           // );
@@ -57,7 +62,7 @@ export class UICitationCountsFactory {
   static async registerExtraColumn() {
     await ztoolkit.ItemTree.register(
       "citation-counts",
-      "#cite",
+      "@cite",
       (
         field: string,
         unformatted: boolean,
@@ -65,8 +70,24 @@ export class UICitationCountsFactory {
         item: Zotero.Item,
       ) => {
         const counts = ztoolkit.ExtraField.getExtraField(item, "citationCount");
-        ztoolkit.log(typeof counts);
         return counts && counts != "undefined" ? `${counts}` : "";
+      },
+      {},
+    );
+    await ztoolkit.ItemTree.register(
+      "publication-venue",
+      "@publish",
+      (
+        field: string,
+        unformatted: boolean,
+        includeBaseMapped: boolean,
+        item: Zotero.Item,
+      ) => {
+        const venue = ztoolkit.ExtraField.getExtraField(
+          item,
+          "publicationVenue",
+        );
+        return venue && venue != "undefined" ? `${venue}` : "";
       },
       {},
     );
