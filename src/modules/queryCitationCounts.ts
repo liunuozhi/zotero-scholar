@@ -1,7 +1,3 @@
-function setCitationCount(item: Zotero.Item, count: number) {
-  ztoolkit.ExtraField.setExtraField(item, "citationCount", String(count));
-}
-
 async function getSemanticScholarCount(item: Zotero.Item) {
   let sourceID: string = "";
   let idtype = "arxiv";
@@ -20,4 +16,4 @@ async function getSemanticScholarCount(item: Zotero.Item) {
   return data;
 }
 
-export { setCitationCount, getSemanticScholarCount };
+export { getSemanticScholarCount };

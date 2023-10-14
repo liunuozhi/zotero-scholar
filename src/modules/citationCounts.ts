@@ -1,7 +1,4 @@
-import {
-  setCitationCount,
-  getSemanticScholarCount,
-} from "./queryCitationCounts";
+import { getSemanticScholarCount } from "./queryCitationCounts";
 import { config } from "../../package.json";
 import { getString } from "../utils/locale";
 import { count } from "console";
@@ -42,7 +39,12 @@ export class UICitationCountsFactory {
         const items = Zotero.getActiveZoteroPane().getSelectedItems();
         items.map(async (item) => {
           const data = await getSemanticScholarCount(item);
-          setCitationCount(item, data.citationCount);
+          // set citation count
+          ztoolkit.ExtraField.setExtraField(
+            item,
+            "citationCount",
+            String(data.citationCount),
+          );
           // ztoolkit.log(
           //   `${data.citationCount}, ${data.publicationVenue.alternate_names[0]}`,
           // );
