@@ -91,5 +91,44 @@ export class UICitationCountsFactory {
       },
       {},
     );
+    await ztoolkit.ItemTree.register(
+      "last-author",
+      "@last",
+      (
+        field: string,
+        unformatted: boolean,
+        includeBaseMapped: boolean,
+        item: Zotero.Item,
+      ) => {
+        // get last author
+        let lastAuthorName = "";
+        const authors = item.getCreators();
+        const lastAuthor = authors[authors.length - 1];
+        if (lastAuthor) {
+          lastAuthorName = lastAuthor.firstName + " " + lastAuthor.lastName;
+        }
+        return lastAuthorName;
+      },
+      {},
+    );
+    await ztoolkit.ItemTree.register(
+      "first-author",
+      "@first",
+      (
+        field: string,
+        unformatted: boolean,
+        includeBaseMapped: boolean,
+        item: Zotero.Item,
+      ) => {
+        let firstAuthorName = "";
+        const authors = item.getCreators();
+        const firstAuthor = authors[0];
+        if (firstAuthor) {
+          firstAuthorName = firstAuthor.firstName + " " + firstAuthor.lastName;
+        }
+        return firstAuthorName;
+      },
+      {},
+    );
   }
 }
