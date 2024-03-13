@@ -39,6 +39,7 @@ export class UICitationCountsFactory {
         const items = Zotero.getActiveZoteroPane().getSelectedItems();
         items.map(async (item) => {
           const data = await getSemanticScholarCount(item);
+          await new Promise(r => setTimeout(r, 1000))
           // set citation count
           ztoolkit.ExtraField.setExtraField(
             item,
