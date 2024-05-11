@@ -33,7 +33,7 @@
   },
   "homepage": "https://github.com/windingwind/zotero-addon-template#readme",
   "dependencies": {
-    "zotero-plugin-toolkit": "^2.3.30"
+    "zotero-plugin-toolkit": "^2.3.12"
   },
   "devDependencies": {
     "@types/node": "^20.12.8",
@@ -48,7 +48,7 @@
     "release-it": "^17.2.1",
     "replace-in-file": "^7.1.0",
     "typescript": "^5.4.5",
-    "zotero-types": "^2.0.0"
+    "zotero-types": "^1.2.8"
   },
   "eslintConfig": {
     "env": {
