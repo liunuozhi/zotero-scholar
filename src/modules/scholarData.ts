@@ -35,26 +35,34 @@ export class UICitationCountsFactory {
       id: "query-citation-counts",
       label: "Query citation counts",
       icon: menuIcon,
-      commandListener: (event) => {
+      commandListener: async (event) => {
         const items = Zotero.getActiveZoteroPane().getSelectedItems();
-        items.map(async (item) => {
-          const data = await getSemanticScholarCount(item);
-          await new Promise((r) => setTimeout(r, 3000));
-          // set citation count
-          ztoolkit.ExtraField.setExtraField(
-            item,
-            "citationCount",
-            String(data.citationCount),
-          );
-          ztoolkit.ExtraField.setExtraField(
-            item,
-            "publicationVenue",
-            String(data.publicationVenue.alternate_names[0]),
-          );
-          // ztoolkit.log(
-          //   `${data.citationCount}, ${data.publicationVenue.alternate_names[0]}`,
-          // );
-        });
+        const delay = (ms: number | undefined) =>
+          new Promise((res) => setTimeout(res, ms));
+
+        for (const item of items) {
+          (async () => {
+            // Immediately invoked async function
+            try {
+              const data = await getSemanticScholarCount(item);
+              await delay(3000); // Sleep for 1 second
+
+              ztoolkit.ExtraField.setExtraField(
+                item,
+                "citationCount",
+                String(data.citationCount),
+              );
+              ztoolkit.ExtraField.setExtraField(
+                item,
+                "publicationVenue",
+                String(data.publicationVenue.alternate_names[0]),
+              );
+            } catch (error) {
+              console.error("Error fetching or processing data:", error);
+              // Consider adding more robust error handling, e.g., display an error message to the user
+            }
+          })();
+        }
       },
     });
   }

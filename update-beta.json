@@ -1,0 +1,17 @@
+{
+  "addons": {
+    "zoteroScholar@my.com": {
+      "updates": [
+        {
+          "version": "0.1.0-9",
+          "update_link": "https://github.com/liunuozhi/zotero-scholar/releases/download/v0.1.0-9/zotero-scholar.xpi",
+          "applications": {
+            "zotero": {
+              "strict_min_version": "6.999"
+            }
+          }
+        }
+      ]
+    }
+  }
+}
